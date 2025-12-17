@@ -3,9 +3,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 def test_buttons():
     driver = webdriver.Edge()
-    driver.get("https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
+    driver.get(
+        "https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
     wait = WebDriverWait(driver, 10)
 
     # Ждём появления поля company
@@ -31,7 +33,8 @@ def test_buttons():
         input_field.send_keys(idValueDictionary[key])
 
     # Нажимаем кнопку Submit
-    driver.find_element(By.CSS_SELECTOR, ".btn.btn-outline-primary.mt-3").click()
+    driver.find_element(By.CSS_SELECTOR,
+                        ".btn.btn-outline-primary.mt-3").click()
 
     # Проверяем zipCode на alert-danger
     zip_code = driver.find_element(By.ID, "zip-code")
