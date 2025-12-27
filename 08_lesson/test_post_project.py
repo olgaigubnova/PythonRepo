@@ -1,26 +1,12 @@
 import requests
-
-BASE_URL = "https://ru.yougile.com/api-v2/projects"
-
-# НАСТАВНИКУ:
-# вставить API-токен YouGile
-API_TOKEN = "myToken"
+from config import BASE_URL, HEADERS, CREATE_PROJECT_PAYLOAD
 
 
 def test_create_project_positive():
-    headers = {
-        "Authorization": f"Bearer {API_TOKEN}",
-        "Content-Type": "application/json"
-    }
-
-    payload = {
-        "title": "Temp Project"
-    }
-
     response = requests.post(
         BASE_URL,
-        json=payload,
-        headers=headers
+        json=CREATE_PROJECT_PAYLOAD,
+        headers=HEADERS
     )
 
     assert response.status_code == 201
@@ -28,16 +14,10 @@ def test_create_project_positive():
 
 
 def test_create_project_negative():
-    headers = {
-        "Authorization": f"Bearer {API_TOKEN}",
-        "Content-Type": "application/json"
-    }
-
     response = requests.post(
         BASE_URL,
         json={},
-        headers=headers
+        headers=HEADERS
     )
 
     assert response.status_code == 400
-
