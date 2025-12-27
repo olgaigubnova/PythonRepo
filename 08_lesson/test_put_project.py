@@ -1,5 +1,10 @@
 import requests
-from config import BASE_URL, HEADERS, CREATE_PROJECT_PAYLOAD, UPDATE_PROJECT_PAYLOAD
+from config import (
+    BASE_URL,
+    HEADERS,
+    CREATE_PROJECT_PAYLOAD,
+    UPDATE_PROJECT_PAYLOAD,
+)
 
 
 def create_project():
